@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @floor.name %>
+</p>
+
+<p>
+  <strong>Ibeacon uuid:</strong>
+  <%= @floor.ibeacon_uuid %>
+</p>
+
+<p>
+  <strong>Major value:</strong>
+  <%= @floor.major_value %>
+</p>
+
+<p>
+  <strong>Minor value:</strong>
+  <%= @floor.minor_value %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @floor.description %>
+</p>
+
+<%= link_to 'Edit', edit_floor_path(@floor) %> |
+<%= link_to 'Back', floors_path %>

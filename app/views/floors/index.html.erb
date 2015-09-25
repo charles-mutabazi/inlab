@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Floors</h1>
+<hr>
+<div class="row">
+  <% @floors.each do |floor| %>
+  <div class="col-sm-12 col-md-6" >
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <table>
+          <tr>
+            <td class="header">
+              <h3><%= floor.name %></h3>
+
+                <%= link_to edit_floor_path(floor) do %>
+                    <i class="glyphicon glyphicon-edit"></i>
+                <% end %>
+                &nbsp;&nbsp;
+                <%= link_to floor, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class="glyphicon glyphicon-trash"></i>
+                <% end %>
+            </td>
+            <td class="description">
+
+              <p class="desc-body"><strong>Decription</strong>
+                <hr>
+                <%= floor.description %>
+              </p>
+              <p>UUID: <small><%= floor.ibeacon_uuid %></small></p>
+              <p>Major: <span><%= floor.major_value %></span> &nbsp;&nbsp; Minor: <span><%= floor.minor_value %></span></p>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<hr>
+<div class="">
+  <%= link_to 'Add Floor', new_floor_path %>
+</div>

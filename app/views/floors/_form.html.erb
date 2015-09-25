@@ -1,0 +1,35 @@
+<%= form_for(@floor) do |f| %>
+  <% if @floor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@floor.errors.count, "error") %> prohibited this floor from being saved:</h2>
+
+      <ul>
+      <% @floor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.text_field :name, :placeholder => "Floor Name" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :ibeacon_uuid, :placeholder => "iBeacon UUID" %>
+  </div>
+  <div class="form-group row">
+    <div class="col-xs-6">
+      <%= f.number_field :major_value, :placeholder => "Major" %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.number_field :minor_value, :placeholder => "Minor" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_area(:description, size: "0x6", :placeholder => "Floor Description") %>
+  </div>
+  <div class="actions">
+    <%= f.submit :class => "btn btn-primary" %>
+  </div>
+<% end %>
