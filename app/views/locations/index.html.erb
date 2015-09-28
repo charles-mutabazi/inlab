@@ -1,16 +1,19 @@
 <p id="notice"><%= notice %></p>
-
+<% if @location != nil %>
 <h1>Listing Locations</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>User</th>
+      <th>UserID</th>
+      <th>Username</th>
       <th>Floor name</th>
+      <th>UUID</th>
+      <th>Major</th>
+      <th>Minor</th>
       <th>Motion Data</th>
-      <th>Status</th>
       <th>Time Stamp</th>
-      <th colspan="3">Operations</th>
+      <th>Operations</th>
     </tr>
   </thead>
 
@@ -18,18 +21,24 @@
     <% @locations.each do |location| %>
       <tr>
         <td><%= location.user_id %></td>
+        <td><%= location.username %></td>
         <td><%= location.floor_name %></td>
         <td><%= location.motion_data %></td>
-        <td><%= location.status %></td>
+        <td><%= location.uuid %></td>
+        <td><%= location.major %></td>
+        <td><%= location.minor %></td>
         <td><%= location.created_at %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+</
 <br>
+<% else %>
 
-<%= link_to 'New Location', new_location_path %>
+  <div class="empty-div">
+    Location Data will Appear here!
+  </div>
+
+<% end %>
