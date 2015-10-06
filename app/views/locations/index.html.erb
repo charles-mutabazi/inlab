@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
-<% if @location != nil %>
+<% unless @locations.empty? %>
 <h1>Listing Locations</h1>
 
 <table class="table">
   <thead>
     <tr>
-      <th>UserID</th>
+      <th>User ID</th>
       <th>Username</th>
       <th>Floor name</th>
       <th>UUID</th>
@@ -23,18 +23,19 @@
         <td><%= location.user_id %></td>
         <td><%= location.username %></td>
         <td><%= location.floor_name %></td>
-        <td><%= location.motion_data %></td>
         <td><%= location.uuid %></td>
         <td><%= location.major %></td>
         <td><%= location.minor %></td>
+        <td><%= location.motion_data %></td>
         <td><%= location.created_at %></td>
         <td><%= link_to 'Delete', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</
-<br>
+
+<hr>
+<%= link_to "Remove All", remove_all_locations_path, :method => :get, data: { confirm: 'Are you sure?' } %>
 <% else %>
 
   <div class="empty-div">

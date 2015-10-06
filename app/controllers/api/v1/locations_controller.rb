@@ -12,7 +12,7 @@ module Api
       end
 
       def create
-        respond_with Location.create(params[:Location])
+        respond_with Location.create(location_params)
       end
 
       def update
@@ -22,6 +22,12 @@ module Api
       def destroy
         respond_with Location.destroy(params[:id])
       end
+
+      private
+      def location_params
+        params.require(:location).permit(:user_id, :floor_name, :motion_data, :uuid, :minor, :major, :username)
+      end
+
     end
   end
 end

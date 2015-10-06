@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
-  
+
   skip_before_filter :verify_authenticity_token, :only => :create
 
   # GET /locations
@@ -37,6 +37,12 @@ class LocationsController < ApplicationController
         format.json { render json: @location.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def remove_all
+    Location.delete_all
+    flash[:notice] = "You have removed all results!"
+    redirect_to locations_path
   end
 
   # PATCH/PUT /locations/1

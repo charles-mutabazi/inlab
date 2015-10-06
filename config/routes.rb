@@ -9,7 +9,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :locations
+  resources :locations do
+    collection do
+      get 'remove_all'
+    end
+  end
   resources :users
   resources :floors
   root 'floors#index'
