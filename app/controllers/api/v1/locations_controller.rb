@@ -25,7 +25,7 @@ module Api
 
       private
       def location_params
-        params.require(:location).permit(:user_id, :floor_name, :motion_data, :uuid, :minor, :major, :username)
+        params.require(:location).permit(:user_id, :floor_name, :motion_data, :uuid, :minor, :major, :device_uuid)
       end
 
     end
