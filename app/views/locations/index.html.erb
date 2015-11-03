@@ -5,8 +5,7 @@
 <table class="table">
   <thead>
     <tr>
-      <th>User ID</th>
-      <th>Username</th>
+      <th>Device UUID</th>
       <th>Floor name</th>
       <th>UUID</th>
       <th>Major</th>
@@ -20,8 +19,7 @@
   <tbody>
     <% @locations.each do |location| %>
       <tr>
-        <td><%= location.user_id %></td>
-        <td><%= location.username %></td>
+				<td><%= location.device_uuid %></td>
         <td><%= location.floor_name %></td>
         <td><%= location.uuid %></td>
         <td><%= location.major %></td>

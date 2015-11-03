@@ -2,8 +2,8 @@ class Location
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  field :user_id, type: Integer
-  field :username, type: String
+#  field :user_id, type: Integer
+	field :device_uuid, type: String
   field :floor_name, type: String
   field :uuid, type: String
   field :major, type: String
